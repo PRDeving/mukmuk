@@ -24,7 +24,8 @@
       "port": 3000
   },
   "scripts": {
-    "start": "MOCKS_ROOT_DIR=$npm_package_config_mockRoot dyson src $npm_package_config_port",
+    "prepare": "FALLBACK=$npm_package_config_fallback node prepare.js",
+    "start": "npm run prepare && MOCKS_ROOT_DIR=$npm_package_config_mockRoot dyson src $npm_package_config_port",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

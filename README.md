@@ -9,6 +9,7 @@ It's a wrapper over dyson and fake-json-schema that let devs to build mock serve
 - random response based on jsonschema
 - request validation (anticorruption layer?)
 - static-data response as default
+- fallback to non-mocked real services
 
 ## Usage
 
@@ -32,6 +33,8 @@ services:
     build: https://github.com/PRDeving/mukmuk.git
     volumes:
       - ./mocks:/mukmuk/mocks # load local /mocks folder as volume for container /mukmuk/mocks folder
+    environment:
+      - fallback=https://pre.myserver.com:1234 # Optional fallback functionality, explained below
     ports:
       - 3000:3000
 ```
@@ -81,3 +84,15 @@ This is a JSONSchema file that defines the endpoint request, if the mockserver r
 
 
 ** Either .data.json or .response.json files must be present or the endpoint will not be available **
+
+## Fallbacks
+
+A fallback can be configured so requests that are not mocked gets redirected to another service
+
+An URL can be added as `fallback` property in the package.json config
+
+```
+"fallback": "http://pre.myservice.com:1337"
+```
+
+In docker environments a env variable `fallback` can be passed to the container on startup to set the fallback
