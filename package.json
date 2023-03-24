@@ -18,12 +18,12 @@
       "email" : "pablo.deving@gmail.com"
   },
   "license" : "BSD-3-Clause",
-  "main": "src/api/main.js",
+  "main": "src/main.js",
   "config": {
       "mockRoot": "../mocks"
   },
   "scripts": {
-    "start": "MOCKS_ROOT_DIR=$npm_package_config_mockRoot dyson src/api",
+    "start": "MOCKS_ROOT_DIR=$npm_package_config_mockRoot dyson src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

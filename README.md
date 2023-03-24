@@ -1,3 +1,27 @@
+## Usage
+
+#### Standalone
+
+- clone
+- put your mocks in the mocks folder
+- `npm i`
+- `npm start`
+
+#### Docker compose
+
+- create a folder and fill it with your mock jsons
+- add to docker-compose.yml
+```
+version: "3.5"
+services:
+  mukmuk:
+    build: https://github.com/PRDeving/mukmuk.git
+    volumes:
+      - ./mocks:/mukmuk/mocks # load local /mocks folder as volume for container /mukmuk/mocks folder
+    ports:
+      - 3000:3000
+```
+
 ## Directory structure
 
 API paths are represented with the directory structure by using a file-system based router just [like nextjs does](https://nextjs.org/docs/routing/introduction)
