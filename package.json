@@ -1,0 +1,33 @@
+{
+  "name": "mukmuk",
+  "version": "1.0.0",
+  "description": "yet another easy to use api mocking tool with fake jsonschema-based response generation and folder-based routing",
+  "keywords": "api mock mocking fake faker mockapi apiary dyson jsonschema json schema",
+  "homepage": "https://github.com/PRDeving/mukmuk#readme",
+  "author": {
+      "name" : "Pablo Deving",
+      "email" : "pablo.deving@gmail.com",
+      "url" : "https://github.com/PRDeving"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PRDeving/mukmuk.git"
+  },
+  "bugs": {
+      "url" : "https://github.com/PRDeving/mukmuk/issues",
+      "email" : "pablo.deving@gmail.com"
+  },
+  "license" : "BSD-3-Clause",
+  "main": "src/api/main.js",
+  "config": {
+      "mockRoot": "../mocks"
+  },
+  "scripts": {
+    "start": "MOCKS_ROOT_DIR=$npm_package_config_mockRoot dyson src/api",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dyson": "^4.1.0",
+    "json-schema-faker": "^0.5.0-rcv.46"
+  }
+}

@@ -1,0 +1,4 @@
+node_modules
+src/mocks/*
+!src/mocks/health.data.json
+!src/mocks/hello

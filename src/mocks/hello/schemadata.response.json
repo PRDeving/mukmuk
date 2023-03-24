@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "howCoolYouAre": {
+      "type": "integer",
+      "minimum": 1000,
+      "required": true
+    },
+    "SatanicChore": {
+      "type": "string",
+      "required": true
+    },
+    "uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}\\-[0-9a-f]{4}\\-4[0-9a-f]{3}\\-[89ab][0-9a-f]{3}\\-[0-9a-f]{12}$",
+      "required": true
+    }
+  }
+}
