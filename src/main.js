@@ -1,5 +1,5 @@
 const jsf = require('json-schema-faker')
-const { readFileSync, readdirSync } = require('fs')
+const { readdirSync } = require('fs')
 
 const MOCKS_ROOT_DIR = process.env.MOCKS_ROOT_DIR || '../mocks'
 const BASE = `${__dirname}/${MOCKS_ROOT_DIR}`
@@ -34,11 +34,11 @@ const mocks =  getEndpoints().map(endpoint => {
   return ({
     path: endpoint.path.replace(/\/\//g, '/'),
     template: (() => {
-      if (endpoint.data) return JSON.parse(readFileSync(`${BASE}/${endpoint.path}.data.json`, 'utf8'))
+      if (endpoint.data) return require(`${BASE}/${endpoint.path}.data.json`, 'utf8')
       if (!endpoint.response) return ({ status: 'ko' })
 
-      const schema = readFileSync(`${BASE}/${endpoint.path}.response.json`, 'utf8')
-      return jsf.generate(JSON.parse(schema))
+      const schema = require(`${BASE}/${endpoint.path}.response.json`, 'utf8')
+      return jsf.generate(schema)
     })()
   })
 })

@@ -7,6 +7,8 @@
 - `npm i`
 - `npm start`
 
+mukmuk will serve on port 3000 by default (it can be changed in the package.json config)
+
 #### Docker compose
 
 - create a folder and fill it with your mock jsons

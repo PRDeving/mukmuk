@@ -20,10 +20,11 @@
   "license" : "BSD-3-Clause",
   "main": "src/main.js",
   "config": {
-      "mockRoot": "../mocks"
+      "mockRoot": "../mocks",
+      "port": 3000
   },
   "scripts": {
-    "start": "MOCKS_ROOT_DIR=$npm_package_config_mockRoot dyson src",
+    "start": "MOCKS_ROOT_DIR=$npm_package_config_mockRoot dyson src $npm_package_config_port",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
