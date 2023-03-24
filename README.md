@@ -1,3 +1,15 @@
+# MUKMUK
+
+Mukmuk is an easy to use solution for json mocks ready to be started as a docker container in any project.
+It's a wrapper over dyson and fake-json-schema that let devs to build mock servers easily.
+
+## Functionalities
+
+- file-based routing
+- random response based on jsonschema
+- request validation (anticorruption layer?)
+- static-data response as default
+
 ## Usage
 
 #### Standalone
@@ -54,15 +66,16 @@ this structure will register 3 endpoints:
 
 Endpoint configuration are expresed in json files, each endpoint can have 3 different json files:
 
-- <endpoint_name>.data.json (Optional)
+- **<endpoint_name>.data.json** (Optional)
 
 This is a custom json data file, if an endpoint has a .data.json file, every request will recieve the content of said file as response.
+Static data is the default behaivour, .response.json will be ignored for endpoints that already have a .data.json
 
-- <endpoint_name>.response.json (Optional)
+- **<endpoint_name>.response.json** (Optional)
 
 This is a JSONSchema file that defines the endpoint response, if there's no .data.json file, an automatic random response will be generated from the json schema when requests occurs
 
-- <endpoint_name>.request.json (Optional) (NOT IMPLEMENTED YET)
+- **<endpoint_name>.request.json (Optional)** (NOT IMPLEMENTED YET)
 
 This is a JSONSchema file that defines the endpoint request, if the mockserver receives a request that doesnt comply with it, a 400 error will be send instead any data
 
